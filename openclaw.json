@@ -1,0 +1,240 @@
+{
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "local": {
+        "baseUrl": "http://<llama.cpp IP>:<port>/v1",
+        "apiKey": "no-key-needed",
+        "api": "openai-completions",
+        "timeoutSeconds": 180,
+        "models": [
+          {
+            "id": "gemma-4-E2B-it-UD-Q4_K_XL.gguf",
+            "name": "Gemma4-e2b-q4",
+            "contextWindow": 131072,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "timeoutSeconds": 1200,
+      "model": {
+        "primary": "local/gemma-4-E2B-it-UD-Q4_K_XL.gguf"
+      },
+      "models": {
+        "local/gemma-4-E2B-it-UD-Q4_K_XL.gguf": {
+          "alias": "Gemma4-e2b-q4"
+        }
+      },
+      "workspace": "/home/node/.openclaw/workspace",
+      "sandbox": {
+        "mode": "off"
+      }
+    }
+  },
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "mode": "token",
+      "token": "<gateway token>"
+    },
+    "port": 18789,
+    "bind": "lan",
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "controlUi": {
+      "allowInsecureAuth": true,
+      "allowedOrigins": [
+        "http://localhost:18789",
+        "http://127.0.0.1:18789"
+      ]
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "contacts.add",
+        "calendar.add",
+        "reminders.add",
+        "sms.send",
+        "sms.search"
+      ]
+    }
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "tools": {
+    "profile": "coding",
+    "web": {
+      "search": {
+        "provider": "searxng",
+        "enabled": true,
+        "openaiCodex": {}
+      },
+      "fetch": {
+        "enabled": true
+      }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "openai": {
+        "enabled": true
+      },
+      "codex": {
+        "enabled": true
+      },
+      "discord": {
+        "enabled": true
+      },
+      "searxng": {
+        "config": {
+          "webSearch": {
+            "baseUrl": "http://<self-hosted SearXNG IP>:<port>",
+            "categories": "general,news",
+            "language": "zh-TW"
+          }
+        },
+        "enabled": true
+      }
+    }
+  },
+  "auth": {
+    "profiles": {
+      "openai:api-key": {
+        "provider": "openai",
+        "mode": "api_key"
+      }
+    }
+  },
+  "channels": {
+    "discord": {
+      "enabled": true,
+      "token": "<discord token>",
+      "groupPolicy": "allowlist",
+      "guilds": {
+        "<discord server id>": {
+          "requireMention": false,
+          "slug": "my-server"
+        }
+      }
+    }
+  },
+  "wizard": {
+    "lastRunAt": "2026-07-04T10:49:10.986Z",
+    "lastRunVersion": "2026.6.11",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.6.11",
+    "lastTouchedAt": "2026-07-04T10:49:42.476Z"
+  },
+  "skills": {
+    "entries": {
+      "1password": {
+        "enabled": false
+      },
+      "blogwatcher": {
+        "enabled": false
+      },
+      "blucli": {
+        "enabled": false
+      },
+      "camsnap": {
+        "enabled": false
+      },
+      "coding-agent": {
+        "enabled": false
+      },
+      "eightctl": {
+        "enabled": false
+      },
+      "gemini": {
+        "enabled": false
+      },
+      "gh-issues": {
+        "enabled": false
+      },
+      "gifgrep": {
+        "enabled": false
+      },
+      "github": {
+        "enabled": false
+      },
+      "gog": {
+        "enabled": false
+      },
+      "goplaces": {
+        "enabled": false
+      },
+      "himalaya": {
+        "enabled": false
+      },
+      "mcporter": {
+        "enabled": false
+      },
+      "nano-pdf": {
+        "enabled": false
+      },
+      "obsidian": {
+        "enabled": false
+      },
+      "openai-whisper": {
+        "enabled": false
+      },
+      "openai-whisper-api": {
+        "enabled": false
+      },
+      "openhue": {
+        "enabled": false
+      },
+      "oracle": {
+        "enabled": false
+      },
+      "ordercli": {
+        "enabled": false
+      },
+      "sag": {
+        "enabled": false
+      },
+      "session-logs": {
+        "enabled": false
+      },
+      "sherpa-onnx-tts": {
+        "enabled": false
+      },
+      "songsee": {
+        "enabled": false
+      },
+      "sonoscli": {
+        "enabled": false
+      },
+      "spotify-player": {
+        "enabled": false
+      },
+      "summarize": {
+        "enabled": false
+      },
+      "tmux": {
+        "enabled": false
+      },
+      "trello": {
+        "enabled": false
+      },
+      "video-frames": {
+        "enabled": false
+      },
+      "xurl": {
+        "enabled": false
+      }
+    }
+  }
+}
