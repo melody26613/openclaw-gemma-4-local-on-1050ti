@@ -47,6 +47,12 @@ docker build --build-arg CUDA_DOCKER_ARCH=61 -t local/llama.cpp:server-cuda-12.3
 ### Gemma4 E2B
 
 ```bash
+uv venv --python 3.12
+source .venv/bin/activate
+
+pip install huggingface_hub
+
+
 mkdir -p unsloth/gemma-4-E4B-it-GGUF
 
 nohup hf download unsloth/gemma-4-E2B-it-GGUF --include "gemma-4-E2B-it-UD-Q4_K_XL.gguf" --local-dir unsloth/gemma-4-E2B-it-GGUF &

@@ -40,6 +40,7 @@ flowchart LR
 * GPU driver on windows
 * Docker on WSL
 * WSL settings (firewall and memory)
+* Python uv on WSL
 
 #### * GPU for WSL (Optional, if LLM is run on WSL)
 * GPU driver on WSL
